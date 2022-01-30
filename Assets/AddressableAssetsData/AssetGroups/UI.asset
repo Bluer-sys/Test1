@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: UI
+  m_EditorClassIdentifier: 
+  m_GroupName: UI
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c7d12f4a23b5d4942ad1b1a98748a60d
+  m_SerializeEntries:
+  - m_GUID: ecfc564e0b54a984789fe5450f866aa6
+    m_Address: UIRoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1760ea702cb7cdb41b6d3aefc255f20f
+    m_Address: MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 5e5caa7a539491946958399fa5cc3ec0
+    m_Address: HUD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e2845c6126b80504e9ff7454668325e5
+    m_Address: Fruit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: bc2d40f30310be04c85898079ffb2ece
+    m_Address: FruitSpawner
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 379fdf0b30baa0341b9b49906cafe08c
+    m_Address: ScoreBoard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0dace8a716c90134a889dbcdf37b592e
+    m_Address: Record
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3588750a95481df43b35e7a83186c29d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d01129f67416ee346b5dfee6b2320684, type: 2}
+    - {fileID: 11400000, guid: 6a66ac37b1f45284bb3da26d5bb3129c, type: 2}
