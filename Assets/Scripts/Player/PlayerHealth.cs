@@ -11,6 +11,8 @@ namespace Player
 
         public event Action<int, int> HealthChanged;
 
+        public int CurrentHealth => _currentHealth;
+        
         public void Initialize()
         {
             HealthChanged?.Invoke(0, _maxHealth);

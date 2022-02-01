@@ -15,6 +15,8 @@ namespace Enemy
         private Coroutine _attackCoroutine;
         private WaitForSeconds _waitForDelay;
 
+        public int Damage => _damage;
+        
         private void Awake()
         {
             _triggerObserver = GetComponent<TriggerObserver>();
