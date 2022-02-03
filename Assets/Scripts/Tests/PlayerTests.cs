@@ -1,11 +1,10 @@
 using FluentAssertions;
 using NUnit.Framework;
 using Player;
-using UnityEngine;
 
 namespace Tests
 {
-    public class PlayerHealthTests : MonoBehaviour
+    public class PlayerTests
     {
         [Test]
         public void WhenTakingDamage_AndHealthAboveZero_ThenHealthShouldBeLess()

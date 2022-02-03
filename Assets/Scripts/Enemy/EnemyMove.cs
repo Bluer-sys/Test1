@@ -13,6 +13,11 @@ namespace Enemy
         private float _elapsedTime;
         private Vector2 _movePosition;
 
+        public Vector2 MovePosition => _movePosition;
+        public IRandomService RandomService {
+            set => _randomService = value;
+        }
+
         public void Construct(IRandomService randomService)
         {
             _randomService = randomService;
@@ -35,15 +40,13 @@ namespace Enemy
             MoveToPosition();
         }
 
-        private void SetNewPosition()
+        public void SetNewPosition()
         {
             _movePosition = _randomService.RandomPosition();
             _elapsedTime = 0;
         }
 
-        private void MoveToPosition()
-        {
+        private void MoveToPosition() =>
             transform.position = Vector3.MoveTowards(transform.position, _movePosition, _speed * Time.deltaTime);
-        }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Services;
+using Services.Ads;
 using Services.Factory;
 using Services.Progress;
 using Services.Random;
@@ -19,15 +20,17 @@ namespace States
 
         [Inject]
         private void Construct(IUIGameFactory uiGameFactory, IGameFactory gameFactory, IAssetProvider assetProvider,
-            IStaticDataService staticDataService, IRandomService randomService, IWindowService windowService, ISaveLoadService saveLoadService, IPersistentProgress persistentProgress)
+            IStaticDataService staticDataService, IRandomService randomService, IWindowService windowService,
+            ISaveLoadService saveLoadService,
+            IPersistentProgress persistentProgress, IAdsService adsService)
         {
             _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, uiGameFactory, assetProvider, staticDataService, randomService, gameFactory),
+                [typeof(BootstrapState)] = new BootstrapState(this, uiGameFactory, assetProvider, staticDataService, randomService, gameFactory, adsService),
                 [typeof(LoadProgressState)] = new LoadProgressState(this, persistentProgress, saveLoadService),
                 [typeof(MainMenuState)] = new MainMenuState(windowService),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, uiGameFactory, gameFactory, staticDataService, randomService),
-                [typeof(GameLoopState)] = new GameLoopState(saveLoadService),
+                [typeof(GameLoopState)] = new GameLoopState(adsService, saveLoadService),
                 [typeof(ScoreBoardState)] = new ScoreBoardState(uiGameFactory, gameFactory, saveLoadService),
             };
         }
@@ -38,7 +41,7 @@ namespace States
 
             TState newState = GetState<TState>();
             _currentState = newState;
-            
+
             newState.Enter();
         }
 
@@ -48,7 +51,7 @@ namespace States
 
             TState newState = GetState<TState>();
             _currentState = newState;
-            
+
             newState.Enter(payload);
         }
 

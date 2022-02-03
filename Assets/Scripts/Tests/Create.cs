@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Enemy;
+using Player;
 using UnityEngine;
 
 namespace Tests
@@ -8,6 +9,11 @@ namespace Tests
         public static PlayerHealth PlayerHealth()
         {
             return new GameObject().AddComponent<PlayerHealth>();
+        }
+
+        public static EnemyMove EnemyMove()
+        {
+            return new GameObject().AddComponent<EnemyMove>();
         }
     }
 }

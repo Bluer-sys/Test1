@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Services;
+using Services.Ads;
 using Services.Factory;
 using Services.Random;
 using Services.StaticData;
@@ -15,16 +16,18 @@ namespace States
         private readonly IStaticDataService _staticDataService;
         private readonly IRandomService _randomService;
         private readonly IGameFactory _gameFactory;
+        private readonly IAdsService _adsService;
         private readonly IGameStateMachine _gameStateMachine;
 
         public BootstrapState(IGameStateMachine gameStateMachine, IUIGameFactory uiGameFactory,
-            IAssetProvider assetProvider, IStaticDataService staticDataService, IRandomService randomService, IGameFactory gameFactory)
+            IAssetProvider assetProvider, IStaticDataService staticDataService, IRandomService randomService, IGameFactory gameFactory, IAdsService adsService)
         {
             _uiGameFactory = uiGameFactory;
             _assetProvider = assetProvider;
             _staticDataService = staticDataService;
             _randomService = randomService;
             _gameFactory = gameFactory;
+            _adsService = adsService;
             _gameStateMachine = gameStateMachine;
         }
         
@@ -44,6 +47,8 @@ namespace States
             _assetProvider.Initialize();
             _staticDataService.Load();
             _randomService.Initialize();
+            
+            _adsService.Initialize();
         }
 
         private async  void InitUI(Action onInit)
